@@ -18,9 +18,9 @@ export default class HubspotPlugin extends FlexPlugin {
     //If there is a task and the task has a crm ID, screenpop customer record. Otherwise show the list of contacts
     flex.CRMContainer.defaultProps.uriCallback = (task) => {
       if(task && task.attributes.crmid)
-        return `https://app.hubspot.com/contacts/22203833/contact/${task.attributes.crmid}`
+        return `https://app.hubspot.com/contacts/contact/${task.attributes.crmid}`
       else 
-        return 'https://app.hubspot.com/contacts/22203833/contacts/list/view/all/';
+        return `https://app.hubspot.com/contacts/contacts/list/view/all/`;
     }
   }
 }
