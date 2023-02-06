@@ -20,7 +20,6 @@ export default class HubspotPlugin extends FlexPlugin {
       if(task && task.attributes.crmid)
         return `https://app.hubspot.com/contacts/22203833/contact/${task.attributes.crmid}`
       else 
-          console.log(task);
         return 'https://app.hubspot.com/contacts/22203833/contacts/list/view/all/';
     }
   }
