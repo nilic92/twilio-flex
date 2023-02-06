@@ -10,13 +10,12 @@ exports.handler=function(context, event, callback) {
   
   //if the string from contains a whatsapp prefix we need to remove it
   from = from.replace('whatsapp:','');
-  token = 'pat-na1-feeca06c-6cef-4eb1-ac21-5abbe3fbaa57';
 
-  const url='https://api.hubapi.com/contacts/v1/search/query?q='+ 381659691905;
+  const url='https://api.hubapi.com/contacts/v1/search/query?q='+ from;
   axios({
       method: 'get',
       url: url,
-      headers: {Authorization: `Bearer `+ token, 'content-type': 'application/x-www-form-urlencoded;charset=utf-8'}
+      headers: {Authorization: `Bearer `+ process.env.HUBSPOT_TOKEN, 'content-type': 'application/x-www-form-urlencoded;charset=utf-8'}
   })
       .then(function(response) {
           // handle success - first record found
